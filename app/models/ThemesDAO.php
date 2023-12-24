@@ -1,16 +1,16 @@
 <?php
-include_once '../config/Connection.php';
-require_once 'Themes.php';
+include_once 'config/Connection.php';
+require_once 'Theme.php';
 
 class ThemesDAO
 {
     private $conn;
-    private Themes $theme;
+    private Theme $theme;
 
     public function __construct()
     {
         $this->conn = Connection::getInstance()->getConnection();
-        $this->theme = new Themes();
+        $this->theme = new Theme();
     }
 
     /**
@@ -33,5 +33,5 @@ class ThemesDAO
         return $this;
     }
 
-    
+
 }

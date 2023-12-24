@@ -1,6 +1,6 @@
 <?php
 
-class Themes
+class Theme
 {
     private $id;
     private $name;

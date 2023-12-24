@@ -1,7 +1,7 @@
 <?php
 require_once 'Question.php';
 
-class Answers
+class Answer
 {
     private $id;
     private $content;

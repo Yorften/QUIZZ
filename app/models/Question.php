@@ -1,15 +1,15 @@
 <?php
-require_once 'Themes.php';
+require_once 'Theme.php';
 
 class Question
 {
     private $id;
     private $content;
-    private Themes $theme;
+    private Theme $theme;
 
     public function __construct()
     {
-        $this->theme = new Themes();
+        $this->theme = new Theme();
     }
 
     

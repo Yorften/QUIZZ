@@ -1,16 +1,16 @@
 <?php
-include_once '../config/Connection.php';
-require_once 'Answers.php';
+include_once 'config/Connection.php';
+require_once 'Answer.php';
 
 class AnswersDAO
 {
     private $conn;
-    private Answers $answer;
+    private Answer $answer;
 
     public function __construct()
     {
         $this->conn = COnnection::getInstance()->getConnection();
-        $this->answer = new Answers();
+        $this->answer = new Answer();
     }
 
     /**

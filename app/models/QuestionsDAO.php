@@ -1,9 +1,9 @@
 <?php
-include_once '../config/Connection.php';
+include_once 'config/Connection.php';
 require_once 'Question.php';
 
 
-class QuestionDAO
+class QuestionsDAO
 {
     private $conn;
     private Question $question;
