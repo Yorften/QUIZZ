@@ -3,7 +3,7 @@
 
 <head>
 
-    <?php require_once '../../components/head.html'; ?>
+    <?php require_once '../components/head.html'; ?>
     <title>QUIZZ | AWS</title>
 
 </head>

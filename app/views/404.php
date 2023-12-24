@@ -2,7 +2,7 @@
 <html lang="en">
 
 <head>
-    <?php require_once '../../components/head.html'; ?>
+    <?php require_once '../components/head.html'; ?>
     <title>Notfound</title>
 </head>
 
