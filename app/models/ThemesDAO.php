@@ -1,5 +1,5 @@
 <?php
-include_once 'config/Connection.php';
+require_once (__DIR__ . '/../config/Connection.php');
 require_once 'Theme.php';
 
 class ThemesDAO
