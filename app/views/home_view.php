@@ -10,7 +10,7 @@
 
 <body>
     <main class="flex flex-col gap-16 justify-center items-center h-screen bg-[#232f3e] md:gap-8">
-        <img src="../../assets/images/aws.png" alt="" class="object-contain w-1/2 md:w-1/5">
+        <img src="/quizz/assets/images/aws.png" alt="" class="object-contain w-1/2 md:w-1/5">
         <form method="POST" class="flex flex-col gap-4 bg-white rounded-xl p-4 w-10/12 sm:w-3/4 md:w-2/5 lg:w-2/5">
             <div class="flex flex-col">
                 <div id="userInput" class="flex flex-col h-[47.99px] border-2 bg-white border-[#A1A1A1] p-2 rounded-md">
@@ -23,6 +23,7 @@
     </main>
     <script src="/quizz/app/js/main.js"></script>
     <script src="/quizz/app/js/validate.js"></script>
+
 </body>
 
 </html>

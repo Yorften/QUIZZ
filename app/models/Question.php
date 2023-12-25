@@ -12,7 +12,7 @@ class Question
         $this->theme = new Theme();
     }
 
-    
+
     /**
      * Get the value of id
      */

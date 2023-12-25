@@ -9,7 +9,7 @@ class Connection
     private $host = "localhost";
     private $user = "root";
     private $password = "";
-    private $database = "opep2";
+    private $database = "quizz";
     private $conn;
     private $stmt;
 

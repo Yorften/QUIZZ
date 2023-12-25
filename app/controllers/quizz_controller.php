@@ -13,9 +13,11 @@ class Quizz extends Controller
         }
     }
 
-    public function getQuestions()
+    public function questions()
     {
-        $question = new Question();
-        $question->
+        $question = new QuestionsDAO();
+        $questions = $question->getQuestions();
+
+        return json_encode($questions);
     }
 }
