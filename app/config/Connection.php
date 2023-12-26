@@ -11,7 +11,7 @@ class Connection
     private $password = "";
     private $database = "quizz";
     private $conn;
-    private $stmt;
+    // private $stmt;
 
     public function __construct()
     {

@@ -18,12 +18,11 @@
                 </div>
                 <div id="userErr" class="text-red-600 text-xs pl-3"></div>
             </div>
-            <input type="submit" name="start" class="text-2xl font-bold rounded-lg px-4 py-2 bg-[#ff9900] text-[#000716] hover:bg-[#dd8404] duration-300" value="Start">
+            <input type="submit" name="start" id="start" class="text-2xl font-bold rounded-lg px-4 py-2 bg-[#ff9900] text-[#000716] hover:bg-[#dd8404] duration-300" value="Start">
         </form>
     </main>
-    <script src="/quizz/app/js/main.js"></script>
-    <script src="/quizz/app/js/validate.js"></script>
 
+    <script src="/quizz/app/js/validate.js"></script>
 </body>
 
 </html>

@@ -1,6 +1,7 @@
 <?php
 require_once(__DIR__ . '/../config/Connection.php');
 require_once 'Question.php';
+require_once 'AnswersDAO.php';
 
 class QuestionsDAO
 {
@@ -16,16 +17,15 @@ class QuestionsDAO
 
     public function getQuestions()
     {
-        $stmt = $this->conn->prepare("SELECT * FROM questions JOIN themes ORDER BY RAND()");
+        $stmt = $this->conn->prepare("SELECT * FROM questions JOIN themes ORDER BY RAND() LIMIT 10");
         $stmt->execute();
-        $result = $stmt->fetchAll(PDO::FETCH_ASSOC);
         $questions = array();
-        while($result){
+        while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
             $qst = new Question();
-            $qst->setId($result['questionId']);
-            $qst->setContent($result['questionContent']);
-            $qst->getTheme()->setName($result['themeName']);
-            array_push($questions,$qst);
+            $qst->setId($row['questionId']);
+            $qst->setContent($row['questionContent']);
+            $qst->getTheme()->setName($row['themeName']);
+            array_push($questions, $qst);
         }
         return $questions;
     }
