@@ -17,7 +17,7 @@ class QuestionsDAO
 
     public function getQuestions()
     {
-        $stmt = $this->conn->prepare("SELECT * FROM questions JOIN themes ORDER BY RAND() LIMIT 10");
+        $stmt = $this->conn->prepare("SELECT questionId,questionContent,themeName FROM (SELECT questionId,questionContent,themeName FROM questions JOIN themes ON questions.themeId = themes.themeId ORDER BY RAND() LIMIT 10) AS random_questions ORDER BY themeName");
         $stmt->execute();
         $questions = array();
         while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
