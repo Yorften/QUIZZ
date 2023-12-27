@@ -68,10 +68,10 @@
             <p class="absolute top-28 md:top-10 left-5 text-white">Score : </p>
             <p class="absolute top-28 md:top-10 left-[80px] text-white" id="score">0</p>
         </div>
-        <div class="h-2 w-[91%] md:w-[73%] rounded-md bg-black">
+        <div id="progress" class="h-2 w-[91%] md:w-[73%] rounded-md bg-black">
             <div class="progress h-full w-0 rounded-md bg-[#ff9900] transition-[width] ease-in duration-500"></div>
         </div>
-        <div class="hidden min-h-[90vh] h-0 w-0 grid grid-cols-2 gap-4 md:gap-8 inline-block bg-green-600 bg-red-600 w-full p-2 border shadow-lg border-gray-400 rounded-lg select-none cursor-pointer peer peer-checked:border-amber-600 peer-checked:text-amber-600 peer-checked:bg-[#ff9900] shadow-md shadow-2xl peer-checked:shadow-2xl h-[200px] h-[100px] text-xl"></div>
+        <div class="hidden md:min-h-[90vh] min-h-[85vh] h-0 w-0 grid grid-cols-2 gap-4 md:gap-8 inline-block bg-green-600 bg-red-600 w-full p-2 border shadow-lg border-gray-400 rounded-lg select-none cursor-pointer peer peer-checked:border-amber-600 peer-checked:text-amber-600 peer-checked:bg-[#ff9900] shadow-md shadow-2xl peer-checked:shadow-2xl h-[200px] h-[100px] text-xl"></div>
         <div id="content" class="flex flex-col justify-center items-center gap-8 w-[95%] md:w-3/4 h-full">
 
         </div>

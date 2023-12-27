@@ -8,14 +8,12 @@ const changeProgress = (progress) => {
 };
 
 // Refresh message
-
-window.addEventListener("beforeunload", (e) => {
+const beforeUnloadHandler = (e) => {
   e.preventDefault();
   e.returnValue = ""; // For some older browsers
+};
 
-  e.returnValue = confirmationMessage; // For some older browsers
-  return confirmationMessage;
-});
+window.addEventListener("beforeunload", beforeUnloadHandler);
 
 window.addEventListener("load", () => {
   let xhr = new XMLHttpRequest();
@@ -32,13 +30,12 @@ window.addEventListener("load", () => {
         printQuestion(data, i);
         document.getElementById("content").addEventListener("click", (e) => {
           if (e.target.id === "next") {
-            i++;
             if (i < data.length) {
-              progress += 10;
               let answer = checkAnswer();
               if (answer) {
+                i++;
+                progress += 10;
                 let scoreElement = document.getElementById("score");
-
                 if (answer[0].answer == 1) {
                   score += 20;
                   scoreElement.innerHTML = score;
@@ -63,6 +60,7 @@ window.addEventListener("load", () => {
           } else if (e.target.id === "result") {
             let answer = checkAnswer();
             if (answer) {
+              progress += 10;
               let scoreElement = document.getElementById("score");
               if (answer[0].answer == 1) {
                 score += 20;
@@ -101,6 +99,7 @@ window.addEventListener("load", () => {
 
 function printQuestion(data, i) {
   document.getElementById("total").classList.remove("hidden");
+  document.getElementById("progress").classList.remove("hidden");
   document.getElementById("content").innerHTML = `
         <div class="w-full h-[200px] md:h-[100px] flex flex-col justify-center p-2 border-2 bg-white border-black rounded-xl shadow-xl">
             <p class="text-xl text-center">${data[i].content}</p>
@@ -150,12 +149,14 @@ function printQuestion(data, i) {
 
 function printLoggedAnswers(data, score) {
   document.getElementById("total").classList.add("hidden");
+  document.getElementById("progress").classList.add("hidden");
   let content = document.getElementById("content");
   content.innerHTML = "";
   content.innerHTML += ` 
-  <div class="flex flex-col justify-around bg-white rounded-2xl min-h-[90vh] w-full md:w-3/5 border-2 border-gray-700 p-1 py-2">
-    <div class="child:text-xl child:font-semibold">
+  <div class="flex flex-col justify-around bg-white rounded-lg min-h-[85vh] md:min-h-[90vh] w-full md:w-3/5 border-2 border-gray-700 p-1 py-2">
+    <div class="child:text-xl child:font-semibold flex justify-between items-center px-2">
         <p>Your score: ${score}</p>
+        <button onclick="window.removeEventListener('beforeunload', beforeUnloadHandler);location.reload();" class="p-1 px-4 bg-[#ff9900] text-lg font-medium border border-black rounded-xl">Try again</button>
     </div>
     <div class="flex flex-col">
     ${data

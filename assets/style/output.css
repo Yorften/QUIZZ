@@ -745,6 +745,14 @@ video {
   min-height: 90vh;
 }
 
+.min-h-\[80vh\] {
+  min-height: 80vh;
+}
+
+.min-h-\[85vh\] {
+  min-height: 85vh;
+}
+
 .w-1\/2 {
   width: 50%;
 }
@@ -1411,6 +1419,10 @@ video {
 
   .md\:h-\[83vh\] {
     height: 83vh;
+  }
+
+  .md\:min-h-\[90vh\] {
+    min-height: 90vh;
   }
 
   .md\:w-1\/5 {
