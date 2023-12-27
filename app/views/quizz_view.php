@@ -75,7 +75,7 @@
         <div id="content" class="flex flex-col justify-center items-center gap-8 w-[95%] md:w-3/4 h-full">
 
         </div>
-        <div class="absolute top-44 md:top-20 mx-auto rounded-xl bg-red-600 text-lg font-medium text-white" id="error"></div>
+        <div class="absolute top-44 md:top-[90px] mx-auto rounded-xl bg-red-600 text-lg font-medium text-white" id="error"></div>
     </main>
 
     <script src="/quizz/app/js/main.js"></script>

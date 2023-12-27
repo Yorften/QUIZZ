@@ -632,6 +632,14 @@ video {
   top: 11rem;
 }
 
+.top-48 {
+  top: 12rem;
+}
+
+.top-56 {
+  top: 14rem;
+}
+
 .mx-auto {
   margin-left: auto;
   margin-right: auto;
@@ -751,6 +759,10 @@ video {
 
 .min-h-\[85vh\] {
   min-height: 85vh;
+}
+
+.min-h-\[8vh\] {
+  min-height: 8vh;
 }
 
 .w-1\/2 {
@@ -1399,6 +1411,14 @@ video {
 
   .md\:top-20 {
     top: 5rem;
+  }
+
+  .md\:top-\[100px\] {
+    top: 100px;
+  }
+
+  .md\:top-\[90px\] {
+    top: 90px;
   }
 
   .md\:mt-auto {

@@ -1,3 +1,7 @@
+// Audio
+
+let audio = new Audio("../../assets/audio/error.mp3");
+
 // Progress bar
 
 const progressbar = document.querySelector(".progress");
@@ -204,6 +208,7 @@ function checkAnswer() {
 }
 
 function shake() {
+  audio.play();
   let elements = document.getElementsByClassName("answer");
   for (let i = 0; i < elements.length; i++) {
     elements[i].classList.remove("shake");
