@@ -53,13 +53,10 @@ window.addEventListener("load", () => {
                 printQuestion(data, i);
                 changeProgress(progress);
               } else {
-                let error = document.getElementById("error");
-                error.classList.add("p-1");
-                error.innerHTML = "You need to select one answer to proceed";
-                shake();
+                printError("You need to select one answer to proceed");
               }
             } else {
-              console.log("No more questions.");
+              printError("No more questions");
             }
           } else if (e.target.id === "result") {
             let answer = checkAnswer();
@@ -82,10 +79,7 @@ window.addEventListener("load", () => {
                 printLoggedAnswers(results, score);
               }, 1500);
             } else {
-              let error = document.getElementById("error");
-              error.classList.add("p-1");
-              error.innerHTML = "You need to select one answer to proceed";
-              shake();
+              printError("You need to select one answer to proceed");
             }
           }
         });
@@ -102,6 +96,7 @@ window.addEventListener("load", () => {
 });
 
 function printQuestion(data, i) {
+  document.getElementById("welcome").classList.remove("hidden");
   document.getElementById("total").classList.remove("hidden");
   document.getElementById("progress").classList.remove("hidden");
   document.getElementById("content").innerHTML = `
@@ -152,13 +147,15 @@ function printQuestion(data, i) {
 }
 
 function printLoggedAnswers(data, score) {
+  void window.offsetWidth;
+  document.getElementById("welcome").classList.add("hidden");
   document.getElementById("total").classList.add("hidden");
   document.getElementById("progress").classList.add("hidden");
   let content = document.getElementById("content");
   content.innerHTML = "";
   content.innerHTML += ` 
   <div class="flex flex-col justify-around bg-white rounded-lg min-h-[85vh] md:min-h-[90vh] w-full md:w-3/5 border-2 border-gray-700 p-1 py-2">
-    <div class="child:text-xl child:font-semibold flex justify-between items-center px-2">
+    <div class="child:text-xl child:font-semibold flex justify-between items-center p-2">
         <p>Your score: ${score}</p>
         <button onclick="window.removeEventListener('beforeunload', beforeUnloadHandler);location.reload();" class="p-1 px-4 bg-[#ff9900] text-lg font-medium border border-black rounded-xl">Try again</button>
     </div>
@@ -228,4 +225,15 @@ function logAnswer(i, data, answer, results) {
   };
   results.push(result);
   return results;
+}
+
+function printError(msg) {
+  let error = document.getElementById("error");
+  error.classList.add("p-1");
+  error.classList.remove("opacity-0");
+  error.innerHTML = msg;
+  setTimeout(() => {
+    error.classList.add("opacity-0");
+  }, 3000);
+  shake();
 }

@@ -61,24 +61,26 @@
     </style>
 </head>
 
-<body>
+<body class="overflow-x-hidden">
+    <canvas id="screen" class="absolute"></canvas>
     <main class="flex flex-col justify-center gap-8 items-center min-h-screen bg-[#232f3e]">
-        <p class="text-white mt-[10%] text-2xl md:mt-10 md:text-xl">Welcome <?= $_SESSION['username'] ?>!</p>
-        <div id="total">
+        <p id="welcome" class="text-white mt-[5vh] text-2xl h-[3.5] md:mt-[5vh] md:text-xl z-10">Welcome <?= $_SESSION['username'] ?>!</p>
+        <div id="total" class=" z-10">
             <p class="absolute top-28 md:top-10 left-5 text-white">Score : </p>
             <p class="absolute top-28 md:top-10 left-[80px] text-white" id="score">0</p>
         </div>
-        <div id="progress" class="h-2 w-[91%] md:w-[73%] rounded-md bg-black">
+        <div id="progress" class="h-[1.5vh] w-[91%] md:w-[73%] rounded-md bg-black z-10 mt-[10vh] md:mt-0">
             <div class="progress h-full w-0 rounded-md bg-[#ff9900] transition-[width] ease-in duration-500"></div>
         </div>
-        <div class="hidden md:min-h-[90vh] min-h-[85vh] h-0 w-0 grid grid-cols-2 gap-4 md:gap-8 inline-block bg-green-600 bg-red-600 w-full p-2 border shadow-lg border-gray-400 rounded-lg select-none cursor-pointer peer peer-checked:border-amber-600 peer-checked:text-amber-600 peer-checked:bg-[#ff9900] shadow-md shadow-2xl peer-checked:shadow-2xl h-[200px] h-[100px] text-xl"></div>
-        <div id="content" class="flex flex-col justify-center items-center gap-8 w-[95%] md:w-3/4 h-full">
+        <div class="hidden min-h-[85vh] py-2 p-2 md:min-h-[90vh] h-full md:h-[75vh] md:overflow-y-auto md:overflow-y-scroll min-h-[85vh] h-0 w-0 grid grid-cols-2 gap-4 md:gap-8 inline-block bg-green-600 bg-red-600 w-full p-2 border shadow-lg border-gray-400 rounded-lg select-none cursor-pointer peer peer-checked:border-amber-600 peer-checked:text-amber-600 peer-checked:bg-[#ff9900] shadow-md shadow-2xl peer-checked:shadow-2xl h-[200px] h-[100px] text-xl "></div>
+        <div id="content" class="flex flex-col justify-start items-center gap-8 w-[95%] md:w-3/4 z-10">
 
         </div>
-        <div class="absolute top-44 md:top-[90px] mx-auto rounded-xl bg-red-600 text-lg font-medium text-white" id="error"></div>
+        <div class="absolute transition-opacity duration-700 ease-in top-60 md:top-[100px] mx-auto rounded-xl bg-red-600 text-lg font-medium text-white opacity-0" id="error"></div>
     </main>
 
     <script src="/quizz/app/js/main.js"></script>
+    <script src="/quizz/app/js/screen.js"></script>
 </body>
 
 </html>
