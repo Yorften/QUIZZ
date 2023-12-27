@@ -1,3 +1,14 @@
+// Progress bar
+
+const progressbar = document.querySelector(".progress");
+let progress = 0;
+
+const changeProgress = (progress) => {
+  progressbar.style.width = `${progress}%`;
+};
+
+// Refresh message
+
 window.addEventListener("beforeunload", (e) => {
   e.preventDefault();
   e.returnValue = ""; // For some older browsers
@@ -23,6 +34,7 @@ window.addEventListener("load", () => {
           if (e.target.id === "next") {
             i++;
             if (i < data.length) {
+              progress += 10;
               let answer = checkAnswer();
               if (answer) {
                 let scoreElement = document.getElementById("score");
@@ -38,6 +50,7 @@ window.addEventListener("load", () => {
                 console.log(results);
                 console.log(results[0].answer[0].answer);
                 printQuestion(data, i);
+                changeProgress(progress);
               } else {
                 let error = document.getElementById("error");
                 error.classList.add("p-1");
@@ -60,9 +73,12 @@ window.addEventListener("load", () => {
 
               logAnswer(i - 1, data, answer, results);
               console.log(results);
+              changeProgress(progress);
 
-              printLoggedAnswers(results, score);
               //RESULT PAGE
+              setTimeout(() => {
+                printLoggedAnswers(results, score);
+              }, 1500);
             } else {
               let error = document.getElementById("error");
               error.classList.add("p-1");
