@@ -99,6 +99,8 @@ function printQuestion(data, i) {
   document.getElementById("welcome").classList.remove("hidden");
   document.getElementById("total").classList.remove("hidden");
   document.getElementById("progress").classList.remove("hidden");
+  document.getElementById("theme").classList.remove("hidden");
+  document.getElementById("theme").innerHTML = data[i].theme.name;
   document.getElementById("content").innerHTML = `
         <div class="w-full h-[200px] md:h-[100px] flex flex-col justify-center p-2 border-2 bg-white border-black rounded-xl shadow-xl">
             <p class="text-xl text-center">${data[i].content}</p>
@@ -151,6 +153,7 @@ function printLoggedAnswers(data, score) {
   document.getElementById("welcome").classList.add("hidden");
   document.getElementById("total").classList.add("hidden");
   document.getElementById("progress").classList.add("hidden");
+  document.getElementById("theme").classList.add("hidden");
   let content = document.getElementById("content");
   content.innerHTML = "";
   content.innerHTML += ` 
